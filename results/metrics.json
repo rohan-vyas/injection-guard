@@ -1,0 +1,134 @@
+{
+  "dataset": {
+    "dataset": "deepset/prompt-injections",
+    "revision": "4f61ecb038e9c3fb77e21034b22511b523772cdd",
+    "license": "apache-2.0",
+    "name": "deepset/prompt-injections",
+    "val_fraction_of_train": 0.15,
+    "split_seed": 42,
+    "splits": {
+      "train": {
+        "n": 465,
+        "injection": 173,
+        "benign": 292,
+        "injection_rate": 0.372
+      },
+      "val": {
+        "n": 81,
+        "injection": 30,
+        "benign": 51,
+        "injection_rate": 0.3704
+      },
+      "test": {
+        "n": 116,
+        "injection": 60,
+        "benign": 56,
+        "injection_rate": 0.5172
+      }
+    }
+  },
+  "models": {
+    "rules": {
+      "threshold": 1.0,
+      "notes": "score = number of regex rules that fire; threshold chosen on validation",
+      "val": {
+        "precision": 1.0,
+        "recall": 0.7333333333333333,
+        "f1": 0.8461538461538461,
+        "accuracy": 0.9012345679012346,
+        "confusion_matrix": {
+          "tn": 51,
+          "fp": 0,
+          "fn": 8,
+          "tp": 22
+        },
+        "n": 81
+      },
+      "test": {
+        "precision": 1.0,
+        "recall": 0.43333333333333335,
+        "f1": 0.6046511627906976,
+        "accuracy": 0.7068965517241379,
+        "confusion_matrix": {
+          "tn": 56,
+          "fp": 0,
+          "fn": 34,
+          "tp": 26
+        },
+        "n": 116
+      }
+    },
+    "tfidf_logreg": {
+      "threshold": 0.45,
+      "C": 1.0,
+      "val_f1_by_C@0.5": {
+        "0.1": 0.8928571428571429,
+        "1.0": 0.9666666666666667,
+        "10.0": 0.9666666666666667,
+        "100.0": 0.9666666666666667
+      },
+      "notes": "word 1-2gram + char_wb 2-5gram TF-IDF, logistic regression (class_weight=balanced); C and threshold chosen on validation",
+      "val": {
+        "precision": 0.9666666666666667,
+        "recall": 0.9666666666666667,
+        "f1": 0.9666666666666667,
+        "accuracy": 0.9753086419753086,
+        "confusion_matrix": {
+          "tn": 50,
+          "fp": 1,
+          "fn": 1,
+          "tp": 29
+        },
+        "n": 81
+      },
+      "test": {
+        "precision": 0.9811320754716981,
+        "recall": 0.8666666666666667,
+        "f1": 0.9203539823008849,
+        "accuracy": 0.9224137931034483,
+        "confusion_matrix": {
+          "tn": 55,
+          "fp": 1,
+          "fn": 8,
+          "tp": 52
+        },
+        "n": 116
+      }
+    },
+    "transformer": {
+      "threshold": 0.35,
+      "base_model": "distilbert-base-multilingual-cased",
+      "best_epoch": 3,
+      "train_seconds": 596.1,
+      "device": "mps",
+      "test_inference_seconds": 0.25,
+      "notes": "fine-tuned in plain PyTorch; early stopping on val F1; threshold chosen on validation",
+      "val": {
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526315,
+        "accuracy": 0.9629629629629629,
+        "confusion_matrix": {
+          "tn": 51,
+          "fp": 0,
+          "fn": 3,
+          "tp": 27
+        },
+        "n": 81
+      },
+      "test": {
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526315,
+        "accuracy": 0.9482758620689655,
+        "confusion_matrix": {
+          "tn": 56,
+          "fp": 0,
+          "fn": 6,
+          "tp": 54
+        },
+        "n": 116
+      }
+    }
+  }
+}

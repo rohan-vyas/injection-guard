@@ -1,0 +1,28 @@
+device=mps train=465 val=81 model=distilbert-base-multilingual-cased
+W1116 16:39:13.228000 51550 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 11239.66it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-multilingual-cased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_transform.weight  | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+pre_classifier.weight   | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.weight       | MISSING    | 
+classifier.bias         | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"epoch": 1, "train_loss": 0.6027078136321037, "val_f1@0.5": 0.6666666666666666, "val_acc@0.5": 0.8024691358024691, "elapsed_s": 38.679244874976575}
+{"epoch": 2, "train_loss": 0.2061980183005974, "val_f1@0.5": 0.9491525423728814, "val_acc@0.5": 0.9629629629629629, "elapsed_s": 60.919153707975056}
+{"epoch": 3, "train_loss": 0.03328271592136032, "val_f1@0.5": 0.9655172413793104, "val_acc@0.5": 0.9753086419753086, "elapsed_s": 82.74126087495824}
+{"epoch": 4, "train_loss": 0.01061583126454504, "val_f1@0.5": 0.9473684210526315, "val_acc@0.5": 0.9629629629629629, "elapsed_s": 102.18149975000415}
+{"epoch": 5, "train_loss": 0.0018802773126060524, "val_f1@0.5": 0.9473684210526315, "val_acc@0.5": 0.9629629629629629, "elapsed_s": 116.16983933298616}
+{"epoch": 6, "train_loss": 0.0013837893633672628, "val_f1@0.5": 0.9473684210526315, "val_acc@0.5": 0.9629629629629629, "elapsed_s": 129.65162070799852}
+early stop at epoch 6 (best epoch 3)
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.18s/it]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.18s/it]
+saved to models/seed43; threshold=0.15; train_seconds=129.7

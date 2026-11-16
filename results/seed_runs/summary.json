@@ -1,0 +1,42 @@
+[
+  {
+    "model_dir": "seed43",
+    "seed": 43,
+    "threshold": 0.15,
+    "best_epoch": 3,
+    "train_seconds": 129.7,
+    "test": {
+      "precision": 1.0,
+      "recall": 0.9666666666666667,
+      "f1": 0.9830508474576272,
+      "accuracy": 0.9827586206896551,
+      "confusion_matrix": {
+        "tn": 56,
+        "fp": 0,
+        "fn": 2,
+        "tp": 58
+      },
+      "n": 116
+    }
+  },
+  {
+    "model_dir": "seed44",
+    "seed": 44,
+    "threshold": 0.15,
+    "best_epoch": 3,
+    "train_seconds": 111.6,
+    "test": {
+      "precision": 0.9827586206896551,
+      "recall": 0.95,
+      "f1": 0.9661016949152542,
+      "accuracy": 0.9655172413793104,
+      "confusion_matrix": {
+        "tn": 55,
+        "fp": 1,
+        "fn": 3,
+        "tp": 57
+      },
+      "n": 116
+    }
+  }
+]

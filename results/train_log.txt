@@ -1,0 +1,29 @@
+device=mps train=465 val=81 model=distilbert-base-multilingual-cased
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+W1116 16:25:50.013000 21097 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 18754.71it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-multilingual-cased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_transform.weight  | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+pre_classifier.bias     | MISSING    | 
+classifier.bias         | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{"epoch": 1, "train_loss": 0.5868336069968438, "val_f1@0.5": 0.7857142857142857, "val_acc@0.5": 0.8518518518518519, "elapsed_s": 485.57763654203154}
+{"epoch": 2, "train_loss": 0.207999987850186, "val_f1@0.5": 0.8235294117647058, "val_acc@0.5": 0.8888888888888888, "elapsed_s": 507.61745412502205}
+{"epoch": 3, "train_loss": 0.04308807407856308, "val_f1@0.5": 0.9473684210526315, "val_acc@0.5": 0.9629629629629629, "elapsed_s": 523.8042441250291}
+{"epoch": 4, "train_loss": 0.004395723298332223, "val_f1@0.5": 0.9090909090909091, "val_acc@0.5": 0.9382716049382716, "elapsed_s": 546.5575635419809}
+{"epoch": 5, "train_loss": 0.002143672897019774, "val_f1@0.5": 0.8888888888888888, "val_acc@0.5": 0.9259259259259259, "elapsed_s": 578.6871987920022}
+{"epoch": 6, "train_loss": 0.0015589882169039018, "val_f1@0.5": 0.9285714285714286, "val_acc@0.5": 0.9506172839506173, "elapsed_s": 596.1483221250237}
+early stop at epoch 6 (best epoch 3)
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]Writing model shards: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]
+saved to /Users/rohanvyas/Projects/injection-guard/models/transformer; threshold=0.35; train_seconds=596.1

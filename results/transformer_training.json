@@ -1,0 +1,79 @@
+{
+  "base_model": "distilbert-base-multilingual-cased",
+  "threshold": 0.35,
+  "best_epoch": 3,
+  "best_val_f1@0.5": 0.9473684210526315,
+  "val_metrics_at_threshold": {
+    "precision": 1.0,
+    "recall": 0.9,
+    "f1": 0.9473684210526315,
+    "accuracy": 0.9629629629629629,
+    "confusion_matrix": {
+      "tn": 51,
+      "fp": 0,
+      "fn": 3,
+      "tp": 27
+    },
+    "n": 81
+  },
+  "train_seconds": 596.1,
+  "device": "mps",
+  "hardware": "arm64 macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "torch": "2.15.0",
+  "hparams": {
+    "model": "distilbert-base-multilingual-cased",
+    "epochs": 10,
+    "patience": 3,
+    "batch_size": 16,
+    "lr": 3e-05,
+    "weight_decay": 0.01,
+    "warmup_frac": 0.1,
+    "seed": 42,
+    "out": "/Users/rohanvyas/Projects/injection-guard/models/transformer"
+  },
+  "max_len": 256,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5868336069968438,
+      "val_f1@0.5": 0.7857142857142857,
+      "val_acc@0.5": 0.8518518518518519,
+      "elapsed_s": 485.57763654203154
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.207999987850186,
+      "val_f1@0.5": 0.8235294117647058,
+      "val_acc@0.5": 0.8888888888888888,
+      "elapsed_s": 507.61745412502205
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.04308807407856308,
+      "val_f1@0.5": 0.9473684210526315,
+      "val_acc@0.5": 0.9629629629629629,
+      "elapsed_s": 523.8042441250291
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.004395723298332223,
+      "val_f1@0.5": 0.9090909090909091,
+      "val_acc@0.5": 0.9382716049382716,
+      "elapsed_s": 546.5575635419809
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.002143672897019774,
+      "val_f1@0.5": 0.8888888888888888,
+      "val_acc@0.5": 0.9259259259259259,
+      "elapsed_s": 578.6871987920022
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0015589882169039018,
+      "val_f1@0.5": 0.9285714285714286,
+      "val_acc@0.5": 0.9506172839506173,
+      "elapsed_s": 596.1483221250237
+    }
+  ]
+}
